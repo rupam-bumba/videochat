@@ -1,6 +1,7 @@
 
 const express = require("express");
 const app = express()
+require('dotenv').config()
 
 const http = require("http");
 const httpServer = http.createServer(app);
@@ -38,6 +39,6 @@ io.on("connection",(socket) => {
 
 
 
-httpServer.listen(3000, () => {
-    console.log("............");
+httpServer.listen(process.env.SERVER_PORT || 3000, () => {
+    console.log( process.env.SERVER_PORT + "............");
 });
